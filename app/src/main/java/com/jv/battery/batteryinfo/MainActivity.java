@@ -68,20 +68,20 @@ public class MainActivity extends AppCompatActivity {
         temperatura = findViewById(R.id.temperatura);
         napiecie = findViewById(R.id.napiecie);
 
-        registerReceiver(batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+//        registerReceiver(batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
     }
 
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        unregisterReceiver(batteryInfoReceiver);
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        registerReceiver(batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(batteryInfoReceiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+    }
 
 }
 
